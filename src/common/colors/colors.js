@@ -1,0 +1,10 @@
+export const black = `#232536`;
+export const yellow = `#FFD050`;
+export const darkyellow = `#EDC14A`;
+export const darkgrey = `#4C4C4C`;
+export const mediumgrey = `#6D6E76`;
+export const purple = `#592EA9`;
+export const light = `#FFFFFF`;
+export const lightyellow = `#FBF6EA`;
+export const lightgrey = `#F4F4F4`;
+export const lavender = `#F4F0F8`;

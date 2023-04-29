@@ -1,0 +1,17 @@
+body{
+    font-family: 'Inter', sans-serif;
+    color: #232536;
+}
+
+
+.fw-bold{
+    font-weight: 800;
+}
+
+.fw-regular{
+    font-weight: 600;
+}
+
+.fw-medium{
+    font-weight: 700;
+}
