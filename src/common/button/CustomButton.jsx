@@ -8,7 +8,7 @@ import {
 function CustomButton(props) {
     const { type, text } = props;
     return (
-        <div>
+        <div className='cursor-pointer'>
             <button
                 onClick={(event)=>{props.handleClick(event)}}
                 type={type}

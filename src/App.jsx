@@ -1,8 +1,7 @@
 import './App.css'
-import CustomButton from './common/button/CustomButton'
 
 import {
-  Label,
+  Label1,
   Body1,
   Body2,
   Heading1,

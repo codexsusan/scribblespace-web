@@ -11,17 +11,39 @@ export default function Navbar() {
         navigate('/login');
     };
 
+    const routeHome = () => {
+        navigate('/home');
+    }
+
+    const routeBlog = () => {
+        navigate("/blog");
+    }
+
+    const routeAbout = () => { }
+
+    const routeContactUs = () => {
+
+    }
+
     return (
         <div className={`bg-[${black}] text-[${light}] flex justify-between items-center py-5 px-10`}>
-            <div>
-                <Heading3 body={`Scribble Space`} />
+            <div onClick={routeHome} className='cursor-pointer'>
+                <Heading3 >Scribble Space</Heading3>
             </div>
             <div className='flex items-center gap-10'>
                 <div className='flex gap-10'>
-                        <Body2 body={`Home`} />
-                        <Body2 body={`Blog`} />
-                        <Body2 body={`About Us`} />
-                        <Body2 body={`Contact Us`} />
+                    <div className='cursor-pointer' onClick={routeHome}>
+                        <Body2 >Home</Body2>
+                    </div>
+                    <div className='cursor-pointer' onClick={routeBlog}>
+                        <Body2>Blog</Body2>
+                    </div>
+                    <div className='cursor-pointer' onClick={routeAbout}>
+                        <Body2>About Us</Body2>
+                    </div>
+                    <div className='cursor-pointer' onClick={routeContactUs}>
+                        <Body2>Contact Us</Body2>
+                    </div>
                 </div>
                 <CustomButton text="Sign In" handleClick={routeSignin} />
             </div>
