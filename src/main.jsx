@@ -13,6 +13,10 @@ import BlogPost from './views/blog-post/BlogPost';
 import Category from './views/category/Category';
 import Author from './views/author/Author';
 import Login from './views/auth/Login';
+import Register from './views/auth/Register';
+import Dashboard from './views/admin/Dashboard';
+import ManageBlog from './views/admin/manage-blog/ManageBlog';
+import CreateBlog from './views/admin/create-blog/createBlog';
 
 
 const router = createBrowserRouter([
@@ -26,6 +30,13 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    errorElement: {
+      element: <Errorpage />
+    }
+  },
+  {
+    path: "/register",
+    element: <Register />,
     errorElement: {
       element: <Errorpage />
     }
@@ -61,6 +72,27 @@ const router = createBrowserRouter([
   {
     path: "/author/:id",
     element: <Author />,
+    errorElement: {
+      element: <Errorpage />
+    }
+  },
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />,
+    errorElement: {
+      element: <Errorpage />
+    }
+  },
+  {
+    path: "/admin/manage-blog",
+    element: <ManageBlog />,
+    errorElement: {
+      element: <Errorpage />
+    }
+  },
+  {
+    path: "/admin/create-blog",
+    element: <CreateBlog />,
     errorElement: {
       element: <Errorpage />
     }

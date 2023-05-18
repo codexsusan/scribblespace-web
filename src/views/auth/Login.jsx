@@ -2,30 +2,57 @@ import React, { useState } from 'react'
 import Navbar from '../../common/navbar/Navbar'
 import Footer from '../../common/footer/Footer'
 import { yellow, darkyellow } from '../../common/colors/colors'
+import { Link, useNavigate } from 'react-router-dom'
+import { Body2 } from '../../common/typography/Typography'
 
 function login() {
+
+    const navigate = useNavigate();
 
 
     // Create usestate for email and password 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const url = import.meta.env.VITE_BASE_URL;
 
     const changeEmail = (event) => {
-        const newEmail = event.target.value;
-        console.log(newEmail);
-        setEmail(newEmail);
+        setEmail(event.target.value);
     }
 
     const changePassword = (event) => {
-        const newPassword = event.target.value;
-        console.log(newPassword);
-        setPassword(newPassword);
+        setPassword(event.target.value);
     }
 
-
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
-        console.log(`Email: ${email} \nPassword: ${password}`);
+
+        try {
+            await fetch(
+                `${url}/auth/login`, {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                })
+            }
+            ).then((res) => res.json())
+                .then((data) => {
+                    if (data.authToken == undefined) {
+                        console.log(data.message);
+                        return;
+                    }
+                    const token = data.authToken;
+                    localStorage.setItem('authToken', token);
+                    navigate("/home");
+                });
+        } catch (error) {
+            console.log(error);
+        }
+
 
     }
     return (
@@ -66,6 +93,12 @@ function login() {
                                 Login
                             </button>
                         </div>
+                    </div>
+                    <div className='mt-5 justify-center flex items-center '>
+                        <Body2>
+                            Don't have an account? <Link className='text-xl text-blue-500 cursor-pointer ml-2' to={"/register"}>Register</Link>
+                        </Body2>
+
                     </div>
                 </form>
             </div>
